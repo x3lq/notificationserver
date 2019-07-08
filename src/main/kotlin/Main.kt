@@ -20,7 +20,6 @@ fun Application.main() {
     var config : Configuration
 
     try {
-        // TODO find config path
         val file = File( javaClass.classLoader.getResource("user.properties").file)
         config = configs.properties(file)
     } catch (exp: ConfigurationException) {
