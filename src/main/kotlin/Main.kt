@@ -36,8 +36,15 @@ fun Application.main() {
     install(DefaultHeaders)
     install(CallLogging)
 
+    install(StatusPages) {
+        exception<Throwable> {
+            call.respond(HttpStatusCode.InternalServerError)
+        }
+    }
+
     routing {
         email(config)
+        telnet()
     }
 }
 
